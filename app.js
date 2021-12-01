@@ -37,6 +37,7 @@ tryAgainButtonEl.addEventListener('click', () => {
     cupTwoButtonEl.hidden = false;
     cupThreeButtonEl.hidden = false;
     tryAgainButtonEl.hidden = true;
+    tryAgain();
 })
 
 function resetCups() {
@@ -54,13 +55,13 @@ function handleGuess(userClicked) {
 
     switch (userClicked) {
         case 'cup-one':
-            (correctCup === 0) ? youWon(0) : youLost(0);
+            (correctCup === 0) ? youWon(0) : youLost(correctCup);
             break;
         case 'cup-two':
-            (correctCup === 1) ? youWon(1) : youLost(1);
+            (correctCup === 1) ? youWon(1) : youLost(correctCup);
             break;
         case 'cup-three':
-            (correctCup === 2) ? youWon(2) : youLost(2);
+            (correctCup === 2) ? youWon(2) : youLost(correctCup);
     };
 
     totalGamesEl.textContent = totalGames;
