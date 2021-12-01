@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <title>Cup Game</title>
 </head>
 
 <body>
@@ -20,7 +20,23 @@
     </header>
     <main>
         <section class="main-section">
-            
+            <div id='cup-container'>
+                <img class='cup-image' id='cup-one' src='./assets/cup.png'>
+                <img class='cup-image' id='cup-two' src='./assets/cup.png'>
+                <img class='cup-image' id='cup-three' src='./assets/cup.png'>
+            </div>
+            <div id='button-container'>
+                <button id='cup-one-btn'>Cup #1</button>
+                <button id='cup-two-btn'>Cup #2</button>
+                <button id='cup-three-btn'>Cup #3</button>
+                <button id='try-again-btn' hidden>Try Again</button>
+            </div>
+            <div id='results-div'>
+                <h4>Games Played: <span id='total-games'>0</span></h4>
+                <h4>Times Won: <span id='games-won'>0</span></h4>
+                <h4>Times Lost: <span id='games-lost'>0</span></h4>
+            </div>
+
         </section>
     </main>
     <footer>
