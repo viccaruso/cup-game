@@ -5,7 +5,7 @@ const cupThreeImgEl = document.getElementById('cup-three');
 const cupOneButtonEl = document.getElementById('cup-one-btn');
 const cupTwoButtonEl = document.getElementById('cup-two-btn');
 const cupThreeButtonEl = document.getElementById('cup-three-btn');
-const tryAgainButtonEl = document.getElementById('try-again-btn')
+const tryAgainButtonEl = document.getElementById('try-again-btn');
 const totalGamesEl = document.getElementById('total-games');
 const gamesWonEl = document.getElementById('games-won');
 const gamesLostEl = document.getElementById('games-lost');
@@ -17,28 +17,28 @@ let totalGames = 0;
 
 // set event listeners 
 cupOneButtonEl.addEventListener('click', () => {
-    console.log('You guessed: Cup #1')
+    console.log('You guessed: Cup #1');
     handleGuess('cup-one');
-})
+});
 
 cupTwoButtonEl.addEventListener('click', () => {
-    console.log('You guessed: Cup #2')
+    console.log('You guessed: Cup #2');
     handleGuess('cup-two');
-})
+});
 
 cupThreeButtonEl.addEventListener('click', () => {
-    console.log('You guessed: Cup #3')
+    console.log('You guessed: Cup #3');
     handleGuess('cup-three');
-})
+});
 
 tryAgainButtonEl.addEventListener('click', () => {
-    console.log('try again clicked')
+    console.log('try again clicked');
     cupOneButtonEl.hidden = false;
     cupTwoButtonEl.hidden = false;
     cupThreeButtonEl.hidden = false;
     tryAgainButtonEl.hidden = true;
     tryAgain();
-})
+});
 
 function resetCups() {
     cupOneImgEl.src = './assets/cup.png';
@@ -48,7 +48,7 @@ function resetCups() {
 }
 
 function handleGuess(userClicked) {
-    
+
     const correctCup = Math.floor(Math.random() * 3);
     console.log(`Winning cup is: Cup #${correctCup + 1}`);
     totalGames++;
@@ -62,7 +62,7 @@ function handleGuess(userClicked) {
             break;
         case 'cup-three':
             (correctCup === 2) ? youWon(2) : youLost(correctCup);
-    };
+    }
 
     totalGamesEl.textContent = totalGames;
     gamesWonEl.textContent = gamesWon;
