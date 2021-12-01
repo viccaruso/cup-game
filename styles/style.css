@@ -75,9 +75,6 @@ header img {
     height: var(--header-height);
 }
 
-p {
-    margin: var(--gutter);
-}
   
 footer {
     position: fixed;
@@ -89,3 +86,53 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+
+#cup-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding-top: 20px;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 750px;
+    background-color: black;
+    padding-bottom: 20px;
+}
+
+button {
+    color: white;
+    background-color: black;
+    padding: 5px 10px 5px 10px;
+}
+
+.cup-image {
+    height: 300px;
+    width: 250px;
+}
+
+#results-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: larger;
+    font-weight: bolder;
+    text-align: center;
+}
+
+h4 {
+    background-color: black;
+    color: white;
+    display: block;
+    margin: 0 0 0 0;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
