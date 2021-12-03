@@ -17,22 +17,18 @@ let totalGames = 0;
 
 // set event listeners 
 cupOneButtonEl.addEventListener('click', () => {
-    console.log('You guessed: Cup #1');
     handleGuess('cup-one');
 });
 
 cupTwoButtonEl.addEventListener('click', () => {
-    console.log('You guessed: Cup #2');
     handleGuess('cup-two');
 });
 
 cupThreeButtonEl.addEventListener('click', () => {
-    console.log('You guessed: Cup #3');
     handleGuess('cup-three');
 });
 
 tryAgainButtonEl.addEventListener('click', () => {
-    console.log('try again clicked');
     cupOneButtonEl.hidden = false;
     cupTwoButtonEl.hidden = false;
     cupThreeButtonEl.hidden = false;
@@ -44,13 +40,11 @@ function resetCups() {
     cupOneImgEl.src = './assets/cup.png';
     cupTwoImgEl.src = './assets/cup.png';
     cupThreeImgEl.src = './assets/cup.png';
-    console.log('The cups have been reset.');
 }
 
 function handleGuess(userClicked) {
 
     const correctCup = Math.floor(Math.random() * 3);
-    console.log(`Winning cup is: Cup #${correctCup + 1}`);
     totalGames++;
 
     switch (userClicked) {
@@ -72,12 +66,10 @@ function handleGuess(userClicked) {
 
 function youWon(cupNum) {
     gamesWon++;
-    console.log('You Win!');
     raiseCups(cupNum);
 }
 
 function youLost(cupNum) {
-    console.log('You Lose.');
     raiseCups(cupNum);
 }
 
