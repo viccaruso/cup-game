@@ -15,17 +15,25 @@ const gamesLostEl = document.getElementById('games-lost');
 let gamesWon = 0;
 let totalGames = 0;
 
+const cupArray = [
+    'cup-one',
+    'cup-two',
+    'cup-three'
+];
+
+let correctCup = getRandomItem(cupArray);
+
 // set event listeners 
 cupOneButtonEl.addEventListener('click', () => {
-    handleGuess('cup-one');
+    handleGuess('cup-one', correctCup);
 });
 
 cupTwoButtonEl.addEventListener('click', () => {
-    handleGuess('cup-two');
+    handleGuess('cup-two', correctCup);
 });
 
 cupThreeButtonEl.addEventListener('click', () => {
-    handleGuess('cup-three');
+    handleGuess('cup-three', correctCup);
 });
 
 tryAgainButtonEl.addEventListener('click', () => {
@@ -42,20 +50,20 @@ function resetCups() {
     cupThreeImgEl.src = './assets/cup.png';
 }
 
-function handleGuess(userClicked) {
+function handleGuess(userClicked, correctCup) {
 
-    const correctCup = Math.floor(Math.random() * 3);
+    
     totalGames++;
 
     switch (userClicked) {
         case 'cup-one':
-            (correctCup === 0) ? youWon(0) : youLost(correctCup);
+            (correctCup === 'cup-one') ? youWon('cup-one') : youLost(correctCup);
             break;
         case 'cup-two':
-            (correctCup === 1) ? youWon(1) : youLost(correctCup);
+            (correctCup === 'cup-two') ? youWon('cup-two') : youLost(correctCup);
             break;
         case 'cup-three':
-            (correctCup === 2) ? youWon(2) : youLost(correctCup);
+            (correctCup === 'cup-three') ? youWon('cup-three') : youLost(correctCup);
     }
 
     totalGamesEl.textContent = totalGames;
@@ -64,28 +72,28 @@ function handleGuess(userClicked) {
 
 }
 
-function youWon(cupNum) {
+function youWon(cupString) {
     gamesWon++;
-    raiseCups(cupNum);
+    raiseCups(cupString);
 }
 
-function youLost(cupNum) {
-    raiseCups(cupNum);
+function youLost(cupString) {
+    raiseCups(cupString);
 }
 
-function raiseCups(cupNum) {
-    switch (cupNum) {
-        case 0:
+function raiseCups(cupString) {
+    switch (cupString) {
+        case 'cup-one':
             cupOneImgEl.src = './assets/correct-cup.png';
             cupTwoImgEl.src = './assets/incorrect-cup.png';
             cupThreeImgEl.src = './assets/incorrect-cup.png';
             break;
-        case 1:
+        case 'cup-two':
             cupOneImgEl.src = './assets/incorrect-cup.png';
             cupTwoImgEl.src = './assets/correct-cup.png';
             cupThreeImgEl.src = './assets/incorrect-cup.png';
             break;
-        case 2:
+        case 'cup-three':
             cupOneImgEl.src = './assets/incorrect-cup.png';
             cupTwoImgEl.src = './assets/incorrect-cup.png';
             cupThreeImgEl.src = './assets/correct-cup.png';
@@ -98,9 +106,15 @@ function raiseCups(cupNum) {
 }
 
 function tryAgain() {
+    correctCup = getRandomItem(cupArray);
     resetCups();
     cupOneButtonEl.hidden = false;
     cupTwoButtonEl.hidden = false;
     cupThreeButtonEl.hidden = false;
     tryAgainButtonEl.hidden = true;
 }
+
+function getRandomItem(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
